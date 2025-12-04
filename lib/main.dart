@@ -2,19 +2,24 @@ import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
 void main() {
-  runApp(const DuelArenaApp());
+  runApp(const CellArenaApp());
 }
 
-class DuelArenaApp extends StatelessWidget {
-  const DuelArenaApp({super.key});
+class CellArenaApp extends StatelessWidget {
+  const CellArenaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Duel Arena',
+      title: 'Cell Arena',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        scaffoldBackgroundColor: Colors.grey.shade100,
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+        ),
       ),
       home: const HomeScreen(),
     );

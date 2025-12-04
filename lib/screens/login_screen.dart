@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
 import 'main_menu_screen.dart';
+import 'register_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cell Arena'),
+        title: const Text('Connexion'),
       ),
       body: Center(
         child: Padding(
@@ -18,34 +18,36 @@ class HomeScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Text(
-                'Bienvenue dans Cell Arena',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                'Connectez-vous pour rejoindre l\'arène.',
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
-              const Text(
-                'Connectez-vous ou accédez directement au menu principal pour explorer le jeu.',
-                textAlign: TextAlign.center,
+              const SizedBox(height: 24),
+              TextField(
+                decoration: const InputDecoration(labelText: 'Email'),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                decoration: const InputDecoration(labelText: 'Mot de passe'),
+                obscureText: true,
               ),
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const LoginScreen()),
+                    MaterialPageRoute(builder: (_) => const MainMenuScreen()),
                   );
                 },
                 child: const Text('Se connecter'),
               ),
-              const SizedBox(height: 12),
-              OutlinedButton(
+              TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const MainMenuScreen()),
+                    MaterialPageRoute(builder: (_) => const RegisterScreen()),
                   );
                 },
-                child: const Text('Accéder au menu principal'),
+                child: const Text('Créer un compte'),
               ),
             ],
           ),
